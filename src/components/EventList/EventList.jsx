@@ -13,10 +13,11 @@ class EventList extends React.Component {
                 {this.props.events.events.map((event, i)=>{
                     let newEvent = {
                         logo: event.logo.url,
-                        description: event.name.text,
-                        date: event.start.local,
+                        title: event.name.text,
+                        date: event.start.utc,
                         capacity: event.capacity,
-                        payment: event.is_free
+                        payment: event.is_free,
+                        description: event.description.text
                     }
                     return(
                     <Event key={event.id} event={newEvent}/>
