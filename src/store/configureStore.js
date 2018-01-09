@@ -1,15 +1,15 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import event  from "../reducers/event";
+import search  from "../reducers/search";
 
-// const eventbriteApp = combineReducers({
+const eventbriteApp = combineReducers({
+event,
+search
+});
 
-// });
-
-function reducer (store = ["1", "2", "3", "4", "5"]){
-    return store
-}
 
 function configureStore(initialState) {
-    const store = createStore(reducer, initialState);
+    const store = createStore(eventbriteApp, initialState);
     return store
 }
 
