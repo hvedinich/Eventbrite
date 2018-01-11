@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import App from './App';
+import App from './components/App';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 
@@ -21,8 +21,8 @@ const render = Component => {
 render(App);
 
 if (module.hot) {
-  module.hot.accept('./App', () => {
-    const NextRootContainer = require('./App').default;
+  module.hot.accept('./components/App', () => {
+    const NextRootContainer = require('./components/App').default;
     render(NextRootContainer);
    });
 }
