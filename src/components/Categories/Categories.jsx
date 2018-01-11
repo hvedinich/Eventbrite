@@ -12,7 +12,7 @@ class Categories extends React.Component {
     render() {
       return (
         <div className="Categories">
-          <h3 className="Categories__header">Categories</h3>
+          <h3 className="Categories__header"> Categories </h3>
           <div className="Categories__container">
             {this.props.categories.map(elem => (
               <Category
