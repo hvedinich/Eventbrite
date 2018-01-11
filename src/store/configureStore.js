@@ -1,16 +1,19 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import event  from "../reducers/event";
-import search  from "../reducers/search";
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import event from '../reducers/event';
+import search from '../reducers/search';
+
 
 const eventbriteApp = combineReducers({
-event,
-search
+  event,
+  search,
 });
 
 
-function configureStore(initialState) {
-    const store = createStore(eventbriteApp, initialState);
-    return store
+function configureStore() {
+  const store = createStore(eventbriteApp, composeWithDevTools(applyMiddleware(thunk)));
+  return store
 }
 
 export default configureStore

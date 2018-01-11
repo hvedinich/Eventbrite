@@ -1,7 +1,9 @@
+@import "../../styles/palette";
+
 .Event {
     box-shadow: 0 1px 0 0 rgba(0,0,0,.1);
-    background: #f1ededbf;
-    max-width: 940px;
+    background: @gray-background;
+    max-width: 900px;
     border-radius: 5px;
     padding: 5px;
 }
@@ -10,7 +12,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex-wrap: wrap;
     margin-bottom: 10px;
 }
 
@@ -46,5 +47,5 @@
 }
 
 .event__price {
-    width: 100px;
+    width: 60px;
 }
