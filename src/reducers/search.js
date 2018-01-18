@@ -3,7 +3,6 @@ import categories from './categories';
 
 
 const initialState = {
-  selectedCategories: {},
   pagination: {
     object_count: 21,
     page_number: 1,
@@ -19,7 +18,6 @@ const initialState = {
       name_localized: 'Music',
       short_name: 'Music',
       short_name_localized: 'Music',
-      selected: false,
     },
     {
       resource_uri: 'https://www.eventbriteapi.com/v3/categories/101/',
