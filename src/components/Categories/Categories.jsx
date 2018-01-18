@@ -6,7 +6,7 @@ import './Categories.less'
 
 class Categories extends React.Component {
     addCategory = (event) => {
-      this.props.toggleCategory(event.currentTarget.firstElementChild.id)
+      this.props.toggleCategory(event.currentTarget.id)
     }
 
     render() {
@@ -16,7 +16,7 @@ class Categories extends React.Component {
           <div className="Categories__container">
             {this.props.categories.map(elem => (
               <Category
-                onClick={this.addCategory}
+                clickHandler={this.addCategory}
                 key={elem.id}
                 id={elem.id}
                 name={elem.name}
