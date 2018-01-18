@@ -1,25 +1,24 @@
 @import "../../styles/palette";
 
 .Event {
-    box-shadow: 0 1px 0 0 rgba(0,0,0,.1);
     background: @gray-background;
     max-width: 900px;
     border-radius: 5px;
-    padding: 5px;
+    border-bottom: solid 0.1px white;
 }
 
 .Event__container {
-    display: flex;
+    .flexbox;
     flex-direction: row;
-    align-items: center;
-    margin-bottom: 10px;
+    align-items: stretch;
 }
 
 .event__logo{
     height: 100px;
+    padding-left: 5px;
     width: 200px;
     overflow: hidden;
-   
+    box-shadow: 6px 0px 10px 1px rgba(0, 0, 0, 0.305);
 }
 .event__img{
     max-height: 100%;
@@ -34,18 +33,36 @@
 }
 
 .event__description {
-    width: 350px;
+    width: 100%;
     padding-left: 20px;
     padding-right: 20px
 }
 
 .event__date {
-    width: 150px;
+    padding: 5px 0;
+    color: @gray-font;
+    font-size: 15px;
 }
 .event__capacity {
-    width: 100px
+    padding: 5px 0;
+    color: @gray-font;
+    font-size: 15px;
 }
 
 .event__price {
-    width: 60px;
+    color: aliceblue;
+    background-color: @button-color;
+    border-radius: 0 5px 5px 0;
+    padding: 5px;
+    width: 50px;
+    .flexbox;
+}
+
+.event__pric-center {
+    align-self: center;
+}
+.event__description-title{
+    padding: 5px 0;
+    padding: 5px 0;
+    font-weight: 600;
 }
