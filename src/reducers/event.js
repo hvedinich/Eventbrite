@@ -1,4 +1,4 @@
-import { GET_EVENTS } from '../constants/events';
+import * as type from '../constants/events';
 
 const initialState = {
   pagination: {
@@ -360,12 +360,17 @@ const initialState = {
       },
     },
   ],
+  isFetching: false,
 }
 
 const events = (state = initialState, action) => {
   switch (action.type) {
-    case GET_EVENTS:
-      return { ...initialState };
+    case type.GET_EVENTS:
+      return { ...action.data };
+    case type.GET_EVENTS_REQUEST:
+      return { ...state, isFetching: true }
+    case type.GET_EVENTS_SUCCESS:
+      return { events: action.data, isFetching: false }
     default: return state;
   }
 }

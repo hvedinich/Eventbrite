@@ -35,10 +35,18 @@ class Event extends React.Component {
             <div className="event__logo">
               <img className="event__img" alt="logo" src={this.props.event.logo} />
             </div>
-            <div className="event__description">description{this.props.event.title}</div>
-            <div className="event__date">{this.getDate()}</div>
-            <div className="event__capacity">Capacity {this.props.event.capacity}</div>
-            <div className="event__price">{this.props.event.payment ? 'Free' : 'Paid'}</div>
+            <div className="event__description">
+              <div className="event__date">{this.getDate()}</div>
+              <div className="event__description-title">
+                {this.props.event.title}
+              </div>
+              <div className="event__capacity">Capacity {this.props.event.capacity}</div>
+            </div>
+            <div className="event__price">
+              <div className="event__pric-center">
+                {this.props.event.payment ? 'Free' : 'Paid'}
+              </div>
+            </div>
           </div>
           {this.state.active ?
             <EventDescription

@@ -1,17 +1,13 @@
 import React from 'react';
-import CategoriesContainer from "../../containers/CategoriesContainer";
-import EventListContainer from "../../containers/EventListContainer";
+import Header from '../Header';
+import Main from '../Main';
+import './App.less';
 
-class App extends React.Component {
+const App = () => (
+  <div className="App">
+    <Header />
+    <Main />
+  </div>
+)
 
-  render() {
-    return (
-      <div>
-        <h1>Main</h1>
-        <CategoriesContainer/>
-        <EventListContainer/>
-      </div>
-    );
-  }
-}
-export default App 
+export default App
