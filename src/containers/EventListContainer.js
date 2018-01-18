@@ -3,6 +3,7 @@ import EventList from '../components/EventList';
 
 const mapStateToProps = state => ({
   events: state.event.events,
+  fetching: state.event.isFetching,
 });
 
 
