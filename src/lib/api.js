@@ -2,7 +2,7 @@ const token = 'YRJ74QAOMZ7LD7YLI2W4';
 const host = 'https://www.eventbriteapi.com/v3/';
 
 
-export const eventSearchURL = (city, event, categories) => {
+export const eventSearchURL = (city = '', event = '', categories = '') => {
   const cityParam = city ? `&location.address=${city}` : ''
   const categoriesParam = categories.length ? `&categories=${categories.join(',')}` : ''
   const qParam = event ? `&q=${event}` : ''

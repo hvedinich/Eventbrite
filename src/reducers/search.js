@@ -155,11 +155,12 @@ const search = (state = initialState, action) => {
     case types.GET_CATEGORIES:
       return { ...initialState };
     case types.TOGGLE_CATEGORY:
-      return {
-        ...state,
-        categories: state.categories.map(elem =>
-          categories(elem, action)),
-      }
+      return (
+        Object.assign({}, state, {
+          categories: state.categories.map(elem =>
+            categories(elem, action)),
+        }))
+
 
     default: return state;
   }
