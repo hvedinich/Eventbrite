@@ -69,3 +69,7 @@ export default class SearchBar extends React.Component {
     )
   }
 }
+
+SearchBar.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.object).isRequired,
+}

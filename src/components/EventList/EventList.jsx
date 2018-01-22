@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Event from '../Event';
+import getLocalAddress from '../../lib/getLocalAddress'
 
 import './EventList.less';
+import Preloader from '../Preloader';
 
 class EventList extends React.Component {
-  componentDidMount() {
-
+  componentWillMount() {
+    getLocalAddress().then((address) => {
+      this.props.getEvents(address);
+    });
   }
 
   renderEventList = () => this.props.events.map((event) => {
-    console.log('logo', event)
     const newEvent = {
       logo: event.logo,
       title: event.name.text,
@@ -20,8 +23,8 @@ class EventList extends React.Component {
       description: event.description.text,
     };
     return (
-      <div className="EventList__event">
-        <Event key={event.id} event={newEvent} />
+      <div key={event.id} className="EventList__event">
+        <Event event={newEvent} />
       </div>
     );
   })
@@ -29,7 +32,8 @@ class EventList extends React.Component {
   render() {
     return (
       <div className="EventList">
-        {this.props.fetching ? <span>loading...</span> : this.renderEventList()}
+        {this.props.fetching ?
+          <Preloader /> : this.renderEventList()}
       </div>
     );
   }
@@ -37,6 +41,8 @@ class EventList extends React.Component {
 
 EventList.propTypes = {
   events: PropTypes.arrayOf(PropTypes.object).isRequired,
+  fetching: PropTypes.bool.isRequired,
+  getEvents: PropTypes.func.isRequired,
 }
 
 export default EventList;
