@@ -1,0 +1,49 @@
+@import "../../styles/palette";
+
+.Preloader{
+    margin: 0 auto;
+    width: 50px;
+    padding-top: 25%;
+  }
+
+  .Preloader__dot {
+    background-color: @button-color;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    
+    -webkit-animation: stretchdelay 0.7s infinite ease-in-out;
+    animation: stretchdelay 0.7s infinite ease-in-out;
+  }
+
+  .Preloader__dot.circ2 {
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+  }
+
+  .Preloader__dot.circ3 {
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+  }
+
+  .Preloader__dot.circ4 {
+    -webkit-animation-delay: -0.4s;
+    animation-delay: -0.4s;
+  }
+
+  .Preloader__dot.circ5 {
+    -webkit-animation-delay: -0.3s;
+    animation-delay: -0.3s;
+  }
+
+    @keyframes stretchdelay {
+      0%, 40%, 100% { 
+        transform: translateY(-10px); background: @button-color;
+        -webkit-transform: translateY(-10px); background: @button-color;
+      } 20% {
+        transform: translateY(-20px);
+        background:rgb(168, 231, 247);
+        -webkit-transform: translateY(-20px);
+      }
+    }
