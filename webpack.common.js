@@ -1,5 +1,6 @@
-const path = require('path');
 const webpack = require('webpack');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -7,12 +8,10 @@ module.exports = {
 
   entry: {
     eventbrite: [
-      'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:3000',
-      'webpack/hot/only-dev-server',
       'babel-polyfill',
       './index.jsx',
     ],
+    vendors: './vendors.js',
   },
 
   output: {
@@ -24,21 +23,12 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
 
-  devServer: {
-    historyApiFallback: true,
-    hot: true,
-    port: 3000,
-  },
-
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: ['react-hot-loader/webpack', 'babel-loader'],
-        // use: [
-        //     'babel-loader',
-        // ],
       },
       {
         test: /\.css$/,
@@ -56,14 +46,14 @@ module.exports = {
     ],
   },
   plugins: [
-    // new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
+    new ExtractTextPlugin('styles.css'),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common', // Specify the common bundle's name.
+    }),
     new HtmlWebpackPlugin({
       title: 'Eventbrite',
       hash: true,
       template: './index.html',
     }),
   ],
-
-  // devtool: 'eval',
 }
