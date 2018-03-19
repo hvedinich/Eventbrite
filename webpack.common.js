@@ -7,10 +7,6 @@ module.exports = {
   context: path.join(__dirname, 'src'),
 
   entry: {
-    eventbrite: [
-      'babel-polyfill',
-      './index.jsx',
-    ],
     vendors: './vendors.js',
   },
 

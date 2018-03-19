@@ -5,6 +5,12 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
+  entry: {
+    eventbrite: [
+      'babel-polyfill',
+      './index.jsx',
+    ],
+  },
   plugins: [
     new UglifyJSPlugin(),
     new webpack.DefinePlugin({
