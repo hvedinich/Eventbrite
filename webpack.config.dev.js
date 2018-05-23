@@ -6,13 +6,15 @@ module.exports = merge(common, {
   devServer: {
     historyApiFallback: true,
     hot: true,
-    port: 3000,
+    port: 4000,
   },
   entry: {
     eventbrite: [
       'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:3000',
+      'webpack-dev-server/client?http://localhost:4000',
       'webpack/hot/only-dev-server',
+      'babel-polyfill',
+      './index.jsx',
     ],
   },
 
